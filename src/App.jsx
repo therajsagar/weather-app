@@ -2,8 +2,9 @@ import React from 'react';
 import Title from './components/Title.jsx'
 import Form from './components/Form.jsx';
 import Weather from './components/Weather.jsx';
+import './App.css';
 
-const key = 'ff34b46212d5146db3daeadf72d00311';
+const key = 'xxxx';
 
 class  App  extends React.Component{
 
@@ -31,9 +32,9 @@ class  App  extends React.Component{
 
         const data = await api.json();
 
-        console.log(data);
+        const status = data.message;
 
-        if(city){
+        if(city && data.cod===200){
             this.setState ({
                 temperature: data.main.temp,
                 city: data.name,
@@ -53,7 +54,8 @@ class  App  extends React.Component{
                     description  : null,
                     windspeed : null,
                     cloud: null,
-                    error : null
+                    error :  status.toLocaleUpperCase()
+
                 })
             }
         }
