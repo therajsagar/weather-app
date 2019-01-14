@@ -4,7 +4,7 @@ import Form from './components/Form.jsx';
 import Weather from './components/Weather.jsx';
 import './App.css';
 
-const key = 'xxxx';
+const key = 'XXXXX';
 
 class  App  extends React.Component{
 
@@ -18,7 +18,8 @@ class  App  extends React.Component{
             description  : null,
             windspeed : null,
             cloud: null,
-            error : null
+            error : null,
+            status: 0
         }
     }
 
@@ -34,16 +35,19 @@ class  App  extends React.Component{
 
         const status = data.message;
 
+        console.log(data);
+
         if(city && data.cod===200){
             this.setState ({
                 temperature: data.main.temp,
                 city: data.name,
                 country: data.sys.country,
                 humidity: data.main.humidity,
-                main: data.weather[0].main,
+                description: data.weather[0].main+` (${data.weather[0].description})`,
                 windspeed: data.wind.speed,
                 cloud : data.clouds.all,
-                error: null
+                error: null,
+                status:1
               })}
             else{
                 this.setState( {
@@ -54,6 +58,7 @@ class  App  extends React.Component{
                     description  : null,
                     windspeed : null,
                     cloud: null,
+                    status:0,
                     error :  status.toLocaleUpperCase()
 
                 })
@@ -69,10 +74,11 @@ class  App  extends React.Component{
             city = {this.state.city}
             country  = {this.state.country}
             humidity   = {this.state.humidity}
-            description = {this.state.main}
+            description = {this.state.description}
             windspeed = {this.state.windspeed}
             cloud = {this.state.cloud}
-            error ={this.state.error} />
+            error ={this.state.error} 
+            status = {this.state.status}/>
             </div>
         )
     }

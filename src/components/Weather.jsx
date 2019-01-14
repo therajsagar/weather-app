@@ -1,18 +1,20 @@
 import React from 'react';
 
 function Weather(props){
-    
+       if(props.status){
         return(
             <div>
-                {props.city && <p><span>Location:</span> {props.city},  {props.country}</p>}
-                {props.description && <p><span>Weather Type: </span>{props.description}</p>}
-                {props.temperature && <p><span>Temperature: </span>{props.temperature}<sup>o</sup></p>}
-                {props.humidity && <p><span>Humidity: </span>{props.humidity}%</p>}
-                {props.windspeed && <p><span>Windspeed: </span>{props.windspeed} m/s</p>}
-                {props.cloud && <p><span>Clouds: </span>{props.cloud}%</p>}
-                {props.error && <p><h2>{props.error}</h2></p>}
+                <p><span>Location:</span> {props.city},  {props.country}</p>
+                <p><span>Weather: </span>{props.description}</p>
+                <p><span>Temperature: </span>{props.temperature}<sup>o</sup></p>
+                <p><span>Humidity: </span>{props.humidity}%</p>
+                <p><span>Windspeed: </span>{props.windspeed} m/s</p>
+                <p><span>Clouds: </span>{props.cloud}%</p>
             </div>
-        )
+        )}
+        else{
+           return( <div><h2>{props.error}</h2></div>)
+        }
 }
 
 export default Weather;

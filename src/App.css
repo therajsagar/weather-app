@@ -10,7 +10,8 @@ input {
 button {
     font-size: 25px;
     padding: 10px;
-    border: solid limegreen;
+    border: solid yellow;
+    background: linear-gradient(to right, yellow, orange)
 }
 
 span {
