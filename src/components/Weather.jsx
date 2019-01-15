@@ -3,17 +3,19 @@ import React from 'react';
 function Weather(props){
        if(props.status){
         return(
-            <div>
-                <p><span>Location:</span> {props.city},  {props.country}</p>
-                <p><span>Weather: </span>{props.description}</p>
-                <p><span>Temperature: </span>{props.temperature}<sup>o</sup></p>
-                <p><span>Humidity: </span>{props.humidity}%</p>
-                <p><span>Windspeed: </span>{props.windspeed} m/s</p>
-                <p><span>Clouds: </span>{props.cloud}%</p>
+            <div className='result'>
+            <ul >
+                <li><span className="key">LOCATION</span> : <span className="value"> {props.city},  {props.country}</span></li>
+                <li><span className="key">WEATHER</span> : <span className="value"> {props.description}</span></li>
+                <li><span className="key">TEMPERATURE</span> : <span className="value"> {props.temperature}<sup>o</sup>C</span></li>
+                <li><span className="key">HUMIDITY</span> : <span className="value"> {props.humidity}%</span></li>
+                <li><span className="key">WINDSPEED</span> : <span className="value"> {props.windspeed} m/s</span></li>
+                <li><span className="key">CLOUDINESS</span> : <span className="value"> {props.cloud}%</span></li>
+                </ul>
             </div>
         )}
         else{
-           return( <div><h2>{props.error}</h2></div>)
+           return( <div className='result'><h2>{props.error}</h2></div>)
         }
 }
 
