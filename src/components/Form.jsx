@@ -5,7 +5,7 @@ class Form extends React.Component{
         return (
             <div className='form'>
             <form onSubmit={this.props.getData}>
-                <input type='text' name='city' placeholder='city' autoComplete='off'/>
+                <input type='text' id ='xyz' name='city' placeholder='city' autoComplete='off'/>
                 <button>GO</button>
             </form>
             </div>
