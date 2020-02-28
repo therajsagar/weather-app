@@ -4,7 +4,7 @@ import Form from './components/Form.jsx';
 import Weather from './components/Weather.jsx';
 import './App.css';
 
-const key = 'ff34b46212d5146db3daeadf72d00311';
+const key = 'xxxx';
 
 class  App  extends React.Component{
 
